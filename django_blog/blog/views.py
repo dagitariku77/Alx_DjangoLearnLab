@@ -15,6 +15,8 @@ from .models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import PostForm
 
+
+
 def register(request):
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
@@ -67,12 +69,7 @@ def profile(request):
     return render(request, "blog/profile.html", {"form": form})
 
 
-# blog/views.py
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, Comment
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .forms import PostForm, CommentForm
+
 
 class PostListView(ListView):
     model = Post
